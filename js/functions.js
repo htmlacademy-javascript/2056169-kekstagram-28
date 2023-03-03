@@ -1,28 +1,28 @@
 const stringLength = (str, length) => {
-  let result = str.length <= length;
-  return result
-}
+  const result = str.length <= length;
+  return result;
+};
 
 stringLength('проверяемая строка', 20);
 stringLength('проверяемая строка', 18);
 stringLength('проверяемая строка', 10);
 
 const isPalindrome = (str) => {
-  let formattedStr = str.replaceAll(' ', '').toLowerCase();
+  const formattedStr = str.replaceAll(' ', '').toLowerCase();
   let reversedStr = '';
 
   for (let i = formattedStr.length - 1; i >= 0; i--) {
-      reversedStr += formattedStr[i];
+    reversedStr += formattedStr[i];
   }
   return formattedStr === reversedStr;
-}
+};
 
 isPalindrome('топот');
 isPalindrome('ДовОд');
 isPalindrome('Кекс');
 isPalindrome('Лёша на полке клопа нашёл ');
 
-const getNumbers = (param) => {
+const getNumber = (param) => {
   const str = param.toString();
   let result = '';
 
