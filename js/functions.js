@@ -1,11 +1,11 @@
-const stringLength = (str, length) => {
+const compareLengths = (str, length) => {
   const result = str.length <= length;
   return result;
 };
 
-stringLength('проверяемая строка', 20);
-stringLength('проверяемая строка', 18);
-stringLength('проверяемая строка', 10);
+compareLengths('проверяемая строка', 20);
+compareLengths('проверяемая строка', 18);
+compareLengths('проверяемая строка', 10);
 
 const isPalindrome = (str) => {
   const formattedStr = str.replaceAll(' ', '').toLowerCase();
