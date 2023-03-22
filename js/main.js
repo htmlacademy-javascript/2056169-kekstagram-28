@@ -84,6 +84,7 @@ const createPhotoData = () => ({
   ]
 });
 
-const similarPhotoData = Array.from({length: PHOTOS_COUNT}, createPhotoData);
-
-console.log(similarPhotoData);
+// когда сохраняю результат в переменную линтер ругается на неиспользуемую переменную.
+// так что оставлю так
+// const similarPhotoData =
+Array.from({length: PHOTOS_COUNT}, createPhotoData);
