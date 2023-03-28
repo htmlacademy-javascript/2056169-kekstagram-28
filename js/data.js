@@ -77,6 +77,6 @@ const createPhotoData = () => ({
   ]
 });
 
-const similarPhotoData = () => Array.from({length: PHOTOS_COUNT}, createPhotoData);
+const createSimilarPhotoData = () => Array.from({length: PHOTOS_COUNT}, createPhotoData);
 
-export {similarPhotoData};
+export {createSimilarPhotoData};
