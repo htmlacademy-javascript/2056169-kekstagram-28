@@ -1,6 +1,6 @@
 import {getRandomArrayElement, getRandomInteger} from './util.js';
 
-const PHOTOS_COUNT = 25;
+const PHOTOS_COUNT = 26;
 const MAX_COMMENTS_COUNT = 1000;
 const AVATAR_COUNT = 6;
 
