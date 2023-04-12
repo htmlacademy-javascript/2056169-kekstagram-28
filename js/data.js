@@ -1,8 +1,12 @@
 import {getRandomArrayElement, getRandomInteger} from './util.js';
 
-const PHOTOS_COUNT = 25;
-const MAX_COMMENTS_COUNT = 1000;
-const AVATAR_COUNT = 6;
+import {
+  PHOTOS_COUNT,
+  MIN_COMMENTS_PER_PHOTO,
+  MAX_COMMENTS_PER_PHOTO,
+  MAX_COMMENTS_COUNT,
+  AVATAR_COUNT
+} from './const.js';
 
 const DESCRIPTIONS = [
   'Улыбка — единственный тренд в моде, который актуален всегда.',
@@ -56,25 +60,29 @@ const generatePhotoId = createRandomIdFromRangeGenerator(1, PHOTOS_COUNT);
 const generateCommentId = createRandomIdFromRangeGenerator(1, MAX_COMMENTS_COUNT);
 const createRandomUrlNumber = createRandomIdFromRangeGenerator(1, PHOTOS_COUNT);
 
+
+const createComment = () => ({
+  id: generateCommentId(),
+  avatar: `img/avatar-${getRandomInteger(1, AVATAR_COUNT)}.svg`,
+  message: getRandomArrayElement(MESSAGES),
+  name: getRandomArrayElement(NAMES)
+});
+
+const getComments = () => {
+  const postCommentsCount = getRandomInteger(MIN_COMMENTS_PER_PHOTO, MAX_COMMENTS_PER_PHOTO);
+  const comments = [];
+  for (let i = 0; i < postCommentsCount; i++) {
+    comments.push(createComment());
+  }
+  return comments;
+};
+
 const createPhotoData = () => ({
   id: generatePhotoId(),
   url: `photos/${createRandomUrlNumber()}.jpg`,
   description: getRandomArrayElement(DESCRIPTIONS),
   likes: getRandomInteger(15, 200),
-  comments: [
-    {
-      id: generateCommentId(),
-      avatar: `img/avatar-${getRandomInteger(1, AVATAR_COUNT)}.svg`,
-      message: getRandomArrayElement(MESSAGES),
-      name: getRandomArrayElement(NAMES)
-    },
-    {
-      id: generateCommentId(),
-      avatar: `img/avatar-${getRandomInteger(1, AVATAR_COUNT)}.svg`,
-      message: getRandomArrayElement(MESSAGES),
-      name: getRandomArrayElement(NAMES)
-    }
-  ]
+  comments: getComments()
 });
 
 const createSimilarPhotoData = () => Array.from({length: PHOTOS_COUNT}, createPhotoData);

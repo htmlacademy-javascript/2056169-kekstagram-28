@@ -1,3 +1,3 @@
-import {createSimilarPhotoData} from './data.js';
+import {drawPhotos} from './thumbnails.js';
 
-createSimilarPhotoData();
+drawPhotos();
